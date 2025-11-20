@@ -1,0 +1,30 @@
+[
+    {
+        "relatedWords": [
+            "how",
+            "are",
+            "you"
+        ],
+        "word": "hello"
+    },
+    {
+        "relatedWords": [
+            "are",
+            "you"
+        ],
+        "word": "how"
+    },
+    {
+        "relatedWords": [
+            "you"
+        ],
+        "word": "are"
+    },
+    {
+        "relatedWords": [
+            "are",
+            "how"
+        ],
+        "word": "you"
+    }
+]

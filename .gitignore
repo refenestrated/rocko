@@ -1,0 +1,7 @@
+build/
+*.o
+*.out
+*.exe
+*.log
+.kdev4/
+Rocko.kdev4
