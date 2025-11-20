@@ -5,6 +5,7 @@
 #include <bits/stdc++.h>
 #include <random>
 #include <nlohmann/json.hpp>
+#include <filesystem>
 
 struct RockoWord
 {
@@ -26,7 +27,7 @@ int main()
     //initialise rocko data
     std::vector<RockoWord> rockoData;
 
-    std::string filename = "/home/Refenestrated/projects/Rocko/data/rockoData.json";
+    std::string filename = "../data/rockoData.json";
     loadRockoData(rockoData, filename);
 
     //initialise responses
