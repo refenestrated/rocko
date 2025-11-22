@@ -5,3 +5,4 @@ build/
 *.log
 .kdev4/
 Rocko.kdev4
+data/rockoData.json

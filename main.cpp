@@ -5,7 +5,6 @@
 #include <bits/stdc++.h>
 #include <random>
 #include <nlohmann/json.hpp>
-#include <filesystem>
 
 struct RockoWord
 {
@@ -52,6 +51,11 @@ int main()
                 if (rockoData[j].word == userInputArray[i])
                 {
                     wordFound = true;
+
+                    if (i + 1 < userInputArray.size() && std::find(rockoData[j].relatedWords.begin(), rockoData[j].relatedWords.end(), userInputArray[i + 1]) == rockoData[j].relatedWords.end())
+                    {
+                        rockoData[j].relatedWords.push_back(userInputArray[i + 1]);
+                    }
                 }
             }
             if (!wordFound)
@@ -68,7 +72,7 @@ int main()
         }
 
         std::string lastWord { "" };
-        int maxResponseLength = (distrib(gen) % 12) + 6; // Max 8 words in the response
+        int maxResponseLength = (distrib(gen) % 10) + 3; // Max 8 words in the response
         for (int i = 0; i < maxResponseLength; i++)
         {
             std::string wordToAdd;
@@ -93,7 +97,7 @@ int main()
                     }
                 }
 
-                if (likelyWords.empty() || distrib(gen) % 2 == 1)
+                if (likelyWords.empty())
                 {
                     randItem = distrib(gen) % rockoData.size();
                     wordToAdd = rockoData[randItem].word;
@@ -106,7 +110,8 @@ int main()
             }
 
             //add word to response
-            rockoResponse.append(" " + wordToAdd);
+            //rockoResponse.append(" " + wordToAdd);
+            rockoResponse = wordToAdd + " " + rockoResponse;
             lastWord = wordToAdd;
         }
 
