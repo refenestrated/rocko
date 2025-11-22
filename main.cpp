@@ -31,15 +31,12 @@ int main()
 
     //initialise responses
     std::string userResponse { "" };
-    std::string rockoResponse { "Rocko: Hello, I am rocko" };
-
-    std::cout << rockoResponse << std::endl;
+    std::string rockoResponse { "" };
 
     while (userResponse != "/")
     {
         rockoResponse.clear();
 
-        std::cout << "You: ";
         std::getline(std::cin, userResponse);
         if (userResponse == "/") break;
 
@@ -118,7 +115,7 @@ int main()
             lastWord = wordToAdd;
         }
 
-        std::cout << "Rocko: " << rockoResponse << std::endl;
+        std::cout << rockoResponse << std::endl;
     }
 
     saveRockoData(rockoData, filename);
@@ -157,7 +154,6 @@ void saveRockoData(std::vector<RockoWord>& data, const std::string& filename)
     {
         outFile << jsonData.dump(4);
         outFile.close();
-        std::cout << "Successfully saved to file: " << filename << std::endl;
     }
     else
     {
@@ -173,10 +169,6 @@ bool loadRockoData(std::vector<RockoWord>& data, const std::string& filename)
     {
         std::cerr << "Error opening file: " << filename << std::endl;
         return false;
-    }
-    else
-    {
-        std::cout << "Successfully opened file: " << filename << std::endl;
     }
 
     nlohmann::json jsonData;
